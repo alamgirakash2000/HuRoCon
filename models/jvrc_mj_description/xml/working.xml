@@ -1,0 +1,80 @@
+<mujoco model="construction_scene">
+  <asset>
+    <!-- Textures for construction materials -->
+    <texture name="concrete_texture" type="2d" builtin="flat" rgb1="0.7 0.7 0.7" width="100" height="100"/>
+    <material name="concrete_material" texture="concrete_texture" reflectance="0.2"/>
+    <texture name="wood_texture" type="2d" builtin="flat" rgb1="0.5 0.35 0.15" width="100" height="100"/>
+    <material name="wood_material" texture="wood_texture" reflectance="0.2"/>
+    <texture name="metal_texture" type="2d" builtin="flat" rgb1="0.8 0.8 0.8" width="100" height="100"/>
+    <material name="metal_material" texture="metal_texture" reflectance="0.2"/>
+  </asset>
+
+  <worldbody>
+    <!-- Large Vertical Wall at the Back (60 feet long) -->
+    <body name="back_wall" pos="10 5 0">  <!-- 30 feet behind the robot -->
+      <geom name="back_wall_geom" type="box" size="0.1 10 1.5" pos="0 0 2.5" material="concrete_material"/>
+    </body>
+
+        <!-- Large Vertical Wall at the Back (60 feet long) -->
+    <body name="left_wall" pos="-10 5 0">  <!-- 30 feet behind the robot -->
+      <geom name="left_wall_geom" type="box" size="0.1 10 1.5" pos="0 0 2.5" material="concrete_material"/>
+    </body>
+
+    <!-- Left Side: Semi-constructed building (vertical path) -->
+    <body name="left_building" pos="-7 0 0">  <!-- 10 feet to the left of the robot -->
+      <!-- Foundation -->
+      <geom name="left_foundation" type="box" size="5 0.5 0.2" pos="0 0 0.2" material="concrete_material"/>
+      
+      <!-- Scaffolding -->
+      <body name="left_scaffolding" pos="0 0 0">
+        <!-- Vertical beams -->
+        <geom name="left_scaffold_beam_1" type="box" size="0.05 0.05 5" pos="-2 0 2.5" material="metal_material"/>
+        <geom name="left_scaffold_beam_2" type="box" size="0.05 0.05 5" pos="2 0 2.5" material="metal_material"/>
+        
+        <!-- Horizontal beams -->
+        <geom name="left_scaffold_beam_3" type="box" size="2.1 0.05 0.05" pos="0 0 1" material="metal_material"/>
+        <geom name="left_scaffold_beam_4" type="box" size="2.1 0.05 0.05" pos="0 0 4" material="metal_material"/>
+      </body>
+      
+      <!-- Half-constructed walls -->
+      <geom name="left_wall_1" type="box" size="0.2 2 3" pos="-1 0 1.5" material="concrete_material"/>
+      <geom name="left_wall_2" type="box" size="0.2 2 3" pos="1 0 1.5" material="concrete_material"/>
+      
+      <!-- Construction materials (wooden planks) -->
+      <body name="left_planks" pos="0 0 0.5">
+        <geom name="left_plank_1" type="box" size="1 0.05 0.05" pos="-1.5 0 0.5" material="wood_material"/>
+        <geom name="left_plank_2" type="box" size="1 0.05 0.05" pos="1.5 0 0.5" material="wood_material"/>
+      </body>
+    </body>
+
+
+
+    <!-- Right Side: Replicate the left side with a 20-foot gap (vertical path) -->
+
+    <body name="right_building" pos="7 0 0">  <!-- 10 feet to the right of the robot -->
+      <!-- Foundation -->
+      <geom name="right_foundation" type="box" size="5 0.5 0.2" pos="0 0 0.2" material="concrete_material"/>
+      
+      <!-- Scaffolding -->
+      <body name="right_scaffolding" pos="0 0 0">
+        <!-- Vertical beams -->
+        <geom name="right_scaffold_beam_1" type="box" size="0.05 0.05 5" pos="-2 0 2.5" material="metal_material"/>
+        <geom name="right_scaffold_beam_2" type="box" size="0.05 0.05 5" pos="2 0 2.5" material="metal_material"/>
+        
+        <!-- Horizontal beams -->
+        <geom name="right_scaffold_beam_3" type="box" size="2.1 0.05 0.05" pos="0 0 1" material="metal_material"/>
+        <geom name="right_scaffold_beam_4" type="box" size="2.1 0.05 0.05" pos="0 0 4" material="metal_material"/>
+      </body>
+      
+      <!-- Half-constructed walls -->
+      <geom name="right_wall_1" type="box" size="0.2 2 3" pos="-1 0 1.5" material="concrete_material"/>
+      <geom name="right_wall_2" type="box" size="0.2 2 3" pos="1 0 1.5" material="concrete_material"/>
+      
+      <!-- Construction materials (wooden planks) -->
+      <body name="right_planks" pos="0 0 0.5">
+        <geom name="right_plank_1" type="box" size="1 0.05 0.05" pos="-1.5 0 0.5" material="wood_material"/>
+        <geom name="right_plank_2" type="box" size="1 0.05 0.05" pos="1.5 0 0.5" material="wood_material"/>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>
