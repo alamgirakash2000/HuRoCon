@@ -1,0 +1,1 @@
+foot_frc_score,foot_vel_score,orient_cost,height_error,step_reward,upper_body_reward,terrain_label
